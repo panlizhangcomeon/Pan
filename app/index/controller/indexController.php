@@ -21,7 +21,7 @@ class indexController extends \core\pan
     public function test()
     {
         $title = '视图文件';
-        $data = 'hello world';
+        $data = 'hello world！';
         $this->assign('title', $title);
         $this->assign('data', $data);
         $this->display('index.html');
