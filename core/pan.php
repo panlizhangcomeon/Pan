@@ -45,7 +45,7 @@ class pan
     }
 
     /**
-     * 视图方法
+     *  视图方法
      */
     public function assign($name, $value)
     {
