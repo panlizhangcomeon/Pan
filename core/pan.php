@@ -36,7 +36,7 @@ class pan
         }else{
             $class = str_replace('\\', '/', $class);
             if (PAN . $class . '.php') {
-                include PAN . $class . '.php';  //include 相关类文件，所以可以用 new \core\lib\route 来实例化
+                include PAN . $class . '.php';  // include 相关类文件，所以可以用 new \core\lib\route 来实例化
                 self::$classMap[$class] = $class;
             } else {
                 return false;
