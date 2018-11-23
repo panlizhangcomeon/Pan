@@ -7,6 +7,8 @@
  */
 namespace core\lib;
 
+use core\lib\conf;
+
 class route
 {
     public $module; //模块
@@ -27,19 +29,19 @@ class route
                 $this->module = $patharr[1];
                 unset($patharr[1]); //销毁数组模块对应值
             } else {
-                $this->module = 'index';
+                $this->module = conf::get('INDEX','route');
             }
             if (isset($patharr[2])) {
                 $this->controller = $patharr[2];
                 unset($patharr[2]); //销毁数组控制器对应值
             } else {
-                $this->controller = 'index';
+                $this->controller = conf::get('CONTROLLER','route');
             }
             if (isset($patharr[3])) {
                 $this->action = $patharr[3];
                 unset($patharr[3]); //销毁数组方法对应值
             } else {
-                $this->action = 'index';
+                $this->action = conf::get('ACTION','route');
             }
             //   url多余部分转换成GET
             //   index/index/index/id/1
@@ -52,9 +54,9 @@ class route
                 $i = $i +2;
             }
         } else {
-            $this->module = 'index';
-            $this->controller = 'index';
-            $this->action = 'index';
+            $this->module = conf::get('MODULE','route');
+            $this->controller = conf::get('CONTROLLER','route');
+            $this->action = conf::get('ACTION','route');
         }
 
     }

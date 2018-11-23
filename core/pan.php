@@ -5,23 +5,27 @@
 
 namespace core;
 
+use core\lib\log;
+
 class pan
 {
     public static $classMap = array(); //临时变量，储存已经加载好的类
     public $assign = array(); //临时变量，保存视图
     public static function run()
     {
+        log::init(); //日志类初始化
         $route = new \core\lib\route;
         $module = $route->module;
         $controller = $route->controller;
         $action = $route->action;
-        $controllerFile = APP . '/' . $module . '/controller/' . $controller . 'Controller.php';
+        $controllerFile = APP . '\\' . $module . '\controller\\' . $controller . 'Controller.php';
         $controllerClass = '\\' . APPLICATION . '\index\controller\\' . $controller . 'Controller';
         if (is_file($controllerFile)) {
-            $controllerPath = ROOT . $controllerClass . '.php';
+            $controllerPath = PAN . $controllerClass . '.php';
             include $controllerPath;
             $controller = new $controllerClass;
             $controller->$action();
+            log::log('controller:' . $route->controller . '   ' . 'action:' . $action);
         } else {
             throw new\Exception('找不到控制器' . $controllerClass);
         }
@@ -34,9 +38,9 @@ class pan
         if (isset($classMap[$class])) {
             return true;
         }else{
-            $class = str_replace('\\', '/', $class);
+            //$class = str_replace('\\', '/', $class);
             if (PAN . $class . '.php') {
-                include PAN . $class . '.php';  // include 相关类文件，所以可以用 new \core\lib\route 来实例化
+                include PAN . '\\' . $class . '.php';  // include 相关类文件，所以可以用 new \core\lib\route 来实例化
                 self::$classMap[$class] = $class;
             } else {
                 return false;
@@ -56,10 +60,17 @@ class pan
     {
         $route = new \core\lib\route();
         $module = $route->module;
-        $file = APP . '/' . $module . '/views/' . $file;
+        $file = APP . '\\' . $module . '\views\\' . $file;
         if (is_file($file)) {
             extract($this->assign);
-            include $file;
+            //include_once '../vendor/autoload.php';
+            $loader = new \Twig_Loader_Filesystem(APP . '\\' . $module . '\views');
+            $twig = new \Twig_Environment($loader, array(
+                'cache' => PAN . '\log\twig',
+                'debug' => APP_DEBUG
+            ));
+            $template = $twig->load('index.html');
+            $template->display($this->assign? $this->assign : '');
         }
     }
 }
