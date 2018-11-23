@@ -7,17 +7,11 @@
  */
 namespace core\lib;
 
-class model extends \PDO
+class model extends \Medoo\Medoo
 {
     public function __construct()
     {
-        $dsn = 'mysql:host=localhost;dbname=test';
-        $username = 'root';
-        $passwd = '123456';
-        try{
-            parent::__construct($dsn, $username, $passwd);
-        } catch (\PDOException $e) {
-            echo '数据库连接错误：'. $e->getMessage();
-        }
+        $option = \core\lib\conf::all('database');
+        parent::__construct($option);
     }
 }
