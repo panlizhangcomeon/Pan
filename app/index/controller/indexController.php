@@ -11,19 +11,25 @@ class indexController extends \core\pan
 {
     public function index()
     {
-        echo "its is index" . "<br>";
-        $model = new \core\lib\model();
-        $sql = 'select * from stu where id = 1';
-        $res = $model->query($sql);
-        echo '<pre>';
-        var_dump($res->fetchAll());
+        $model = new \app\index\model\cModel();
+        $data = [
+            'name' => 'papapas'
+        ];
+        $data = $model->remove($data);
+        dump($data);
     }
     public function test()
     {
         $title = '视图文件';
-        $data = 'hello world！';
+        $data = 'hello world!!!';
         $this->assign('title', $title);
         $this->assign('data', $data);
         $this->display('index.html');
+    }
+    public function hello()
+    {
+        $data = 'hello world!!!2333';
+        $this->assign('data', $data);
+        $this->display('hello.html');
     }
 }
