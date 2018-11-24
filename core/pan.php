@@ -24,6 +24,12 @@ class pan
             $controllerPath = PAN . $controllerClass . '.php';
             include $controllerPath;
             $controller = new $controllerClass;
+            $n = strpos($action,'?');
+            if ($n != false) {
+                $action = substr($action, 0, $n);
+            } else {
+                $action = $route->action;
+            }
             $controller->$action();
             log::log('controller:' . $route->controller . '   ' . 'action:' . $action);
         } else {
@@ -62,7 +68,7 @@ class pan
         $module = $route->module;
         $file = APP . '\\' . $module . '\views\\' . $file;
         if (is_file($file)) {
-            extract($this->assign);
+            //extract($this->assign);
             //include_once '../vendor/autoload.php';
             $loader = new \Twig_Loader_Filesystem(APP . '\\' . $module . '\views');
             $twig = new \Twig_Environment($loader, array(
@@ -70,7 +76,7 @@ class pan
                 'debug' => APP_DEBUG
             ));
             $template = $twig->load('index.html');
-            $template->display($this->assign? $this->assign : '');
+            $template->display($this->assign? $this->assign : array());
         }
     }
 }
