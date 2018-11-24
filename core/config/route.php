@@ -10,7 +10,7 @@ return array(
   'CONTROLLER' => 'index',
     'ACTION' => 'index',
     'ROUTE' => [
-        'doc' => ['index', 'index', 'doc'],
-        'blog' => ['index', 'index','blog']
+        'search' => ['index', 'index', 'search'],
+        'test' => ['index', 'index','test']
     ]
 );

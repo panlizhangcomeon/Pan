@@ -33,9 +33,9 @@ class indexController extends \core\pan
     }
 
     //测试模板
-    public function blog()
+    public function test()
     {
-        $this->assign('data', '测试');
-        $this->display('index.html');
+        $this->assign('test', '测试');
+        $this->display('test.html');
     }
 }
