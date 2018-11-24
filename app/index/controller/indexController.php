@@ -29,7 +29,7 @@ class indexController extends \core\pan
         $arr = $model->show();
         dump($arr);
         $this->assign('data', '数据库查询示例如上');
-        $this->display('hello.html');
+        $this->display('addMsg.html');
     }
 
     //测试模板
