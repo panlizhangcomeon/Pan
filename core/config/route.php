@@ -8,5 +8,9 @@
 return array(
     'MODULE' => 'index',
   'CONTROLLER' => 'index',
-    'ACTION' => 'index'
+    'ACTION' => 'index',
+    'ROUTE' => [
+        'doc' => ['index', 'index', 'doc'],
+        'blog' => ['index', 'index','blog']
+    ]
 );
