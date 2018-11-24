@@ -9,7 +9,6 @@ use core\lib\log;
 
 class pan
 {
-    public static $classMap = array(); //临时变量，储存已经加载好的类
     public $assign = array(); //临时变量，保存视图
     public static function run()
     {
@@ -34,23 +33,6 @@ class pan
             log::log('controller:' . $route->controller . '   ' . 'action:' . $action);
         } else {
             throw new\Exception('找不到控制器' . $controllerClass);
-        }
-    }
-
-    public static function load($class) //参数为new的类名，类名和文件名一致
-    {
-        //自动加载类
-        //$class = '\core\lib\route.php'  =>  PAN.'/core/lib/route.php
-        if (isset($classMap[$class])) {
-            return true;
-        }else{
-            //$class = str_replace('\\', '/', $class);
-            if (PAN . $class . '.php') {
-                include PAN . '\\' . $class . '.php';  // include 相关类文件，所以可以用 new \core\lib\route 来实例化
-                self::$classMap[$class] = $class;
-            } else {
-                return false;
-            }
         }
     }
 

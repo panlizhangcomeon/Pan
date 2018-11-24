@@ -31,6 +31,20 @@ include PAN . '\core\common\function.php';
 
 include CORE . '\pan.php';
 
-spl_autoload_register('\core\pan::load'); //new一个类的时候类不存在就会触发方法
+$classMap = array();//临时变量，储存已经加载好的类
+
+spl_autoload_register(function ($class) {
+    if (isset($classMap[$class])) {
+        return true;
+    }else{
+        //$class = str_replace('\\', '/', $class);
+        if (PAN . $class . '.php') {
+            include PAN . '\\' . $class . '.php';  // include 相关类文件，所以可以用 new \core\lib\route 来实例化
+            $classMap[$class] = $class;
+        } else {
+            return false;
+        }
+    }
+}); //new一个类的时候类不存在就会触发方法 ， 匿名函数中引入类的文件路径
 
 \core\pan::run();
