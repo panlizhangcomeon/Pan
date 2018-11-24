@@ -30,7 +30,8 @@ class __TwigTemplate_24566ab6a3e2b430ed58eb23518778f3225304bddb41c0c6533076e9562
 
 <footer>footer</footer>
 </body>
-</html>";
+</html>
+";
     }
 
     // line 6
@@ -47,7 +48,7 @@ class __TwigTemplate_24566ab6a3e2b430ed58eb23518778f3225304bddb41c0c6533076e9562
 
     public function getDebugInfo()
     {
-        return array (  40 => 7,  37 => 6,  29 => 8,  27 => 6,  20 => 1,);
+        return array (  41 => 7,  38 => 6,  29 => 8,  27 => 6,  20 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -71,6 +72,7 @@ class __TwigTemplate_24566ab6a3e2b430ed58eb23518778f3225304bddb41c0c6533076e9562
 
 <footer>footer</footer>
 </body>
-</html>", "layout.html", "D:\\phpStudy\\PHPTutorial\\WWW\\pan\\app\\index\\views\\layout.html");
+</html>
+", "layout.html", "D:\\phpStudy\\PHPTutorial\\WWW\\pan\\app\\index\\views\\layout.html");
     }
 }

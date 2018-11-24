@@ -66,6 +66,7 @@ class __TwigTemplate_a2b8c69ad944769b95b0d0cd99e0b5aac35833a5401c2741f7f50855c7a
 {% block content %}
 {{ data }}
 {{ title }}
-{% endblock %}", "index.html", "D:\\phpStudy\\PHPTutorial\\WWW\\pan\\app\\index\\views\\index.html");
+{% endblock %}
+", "index.html", "D:\\phpStudy\\PHPTutorial\\WWW\\pan\\app\\index\\views\\index.html");
     }
 }
