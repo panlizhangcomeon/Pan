@@ -9,7 +9,7 @@ namespace app\index\model;
 
 use core\lib\model;
 
-class cModel extends model
+class messageModel extends model
 {
     public $table = 'stu';
 

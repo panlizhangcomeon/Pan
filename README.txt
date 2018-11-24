@@ -21,6 +21,13 @@ URL 为 localhost/{项目名}/{模块}/{控制器}/{方法}
 
 日志文件: pan/log/XXXXXXXXXX/log.php (XXXXXXXXXX表示年月日时，每小时的日志存储在一个文件)
 
+支持自定义路由 myroute/xxx   ，只需要在 pan/core/route.php中加入相关配置即可 
+					例如： 'ROUTE' => [
+								'doc' => ['index', 'index', 'doc']
+							]    
+							输入 localhost/pan/myroute/doc   即可访问 localhost/pan/index/index/doc
+
+加载的类库：
 利用composer 加载了一个非常酷炫的错误显示类 flip/whoops
 
 利用composer 加载了一个非常酷炫的变量类 symfony/var_dumper  ，可以使用dump()打印变量，‘效果装逼’
@@ -36,4 +43,4 @@ URL 为 localhost/{项目名}/{模块}/{控制器}/{方法}
 
              index.html:
              {% extends "layout.html" %} 继承模板布局
-             {% block content %} 开始标签    中间写 { 变量名 }   {% endblock %} 闭合标签 
+             {% block content %} 开始标签    中间写 { 变量名 }   {% endblock %} 闭合标签
