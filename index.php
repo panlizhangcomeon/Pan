@@ -48,3 +48,5 @@ spl_autoload_register(function ($class) {
 }); //new一个类的时候类不存在就会触发方法 ， 匿名函数中引入类的文件路径
 
 \core\pan::run();
+
+
