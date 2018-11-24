@@ -7,29 +7,36 @@
  */
 namespace app\index\controller;
 
+use app\core\common\func;
+use app\index\model\stuModel;
+use core\lib\conf;
+
 class indexController extends \core\pan
 {
+    //所有留言
     public function index()
     {
-        $model = new \app\index\model\cModel();
-        $data = [
-            'name' => 'papapas'
-        ];
-        $data = $model->remove($data);
-        dump($data);
-    }
-    public function test()
-    {
-        $title = '视图文件';
-        $data = 'hello world!!!';
-        $this->assign('title', $title);
-        $this->assign('data', $data);
+        $func = new func\func();
+        $id = $func->get('name');
+        echo $id;
+        $this->assign('data', 'index');
         $this->display('index.html');
     }
-    public function hello()
+
+    //添加留言
+    public function search()
     {
-        $data = 'hello world!!!2333';
-        $this->assign('data', $data);
-        $this->display('hello.html');
+        $model = new stuModel();
+        $arr = $model->show();
+        dump($arr);
+        $this->assign('data', 'dock');
+        $this->display('index.html');
+    }
+
+    //保存留言
+    public function blog()
+    {
+        $this->assign('data', 'blog');
+        $this->display('index.html');
     }
 }

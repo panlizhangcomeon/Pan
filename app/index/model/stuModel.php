@@ -9,7 +9,7 @@ namespace app\index\model;
 
 use core\lib\model;
 
-class messageModel extends model
+class stuModel extends model
 {
     public $table = 'stu';
 
@@ -28,7 +28,7 @@ class messageModel extends model
     }
 
     //添加字段
-    public function add($data)
+    public function addOne($data)
     {
         $res = $this->insert($this->table, $data);
         return $res;
