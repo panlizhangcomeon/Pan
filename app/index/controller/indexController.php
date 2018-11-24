@@ -17,26 +17,25 @@ class indexController extends \core\pan
     public function index()
     {
         $func = new func\func();
-        $id = $func->get('name');
-        echo $id;
-        $this->assign('data', 'index');
+        $name = $func->get('name');
+        $this->assign('data', "$name" . ' 欢迎使用pan框架！');
         $this->display('index.html');
     }
 
-    //添加留言
+    //数据库查询示例
     public function search()
     {
         $model = new stuModel();
         $arr = $model->show();
         dump($arr);
-        $this->assign('data', 'dock');
-        $this->display('index.html');
+        $this->assign('data', '数据库查询示例如上');
+        $this->display('hello.html');
     }
 
-    //保存留言
+    //测试模板
     public function blog()
     {
-        $this->assign('data', 'blog');
+        $this->assign('data', '测试');
         $this->display('index.html');
     }
 }

@@ -28,12 +28,9 @@ class __TwigTemplate_a2b8c69ad944769b95b0d0cd99e0b5aac35833a5401c2741f7f50855c7a
     public function block_content($context, array $blocks = array())
     {
         // line 3
+        echo "<h2> ";
         echo twig_escape_filter($this->env, ($context["data"] ?? null), "html", null, true);
-        echo "
-";
-        // line 4
-        echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
-        echo "
+        echo " </h2>
 ";
     }
 
@@ -49,7 +46,7 @@ class __TwigTemplate_a2b8c69ad944769b95b0d0cd99e0b5aac35833a5401c2741f7f50855c7a
 
     public function getDebugInfo()
     {
-        return array (  35 => 4,  31 => 3,  28 => 2,  11 => 1,);
+        return array (  31 => 3,  28 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -64,8 +61,7 @@ class __TwigTemplate_a2b8c69ad944769b95b0d0cd99e0b5aac35833a5401c2741f7f50855c7a
     {
         return new Twig_Source("{% extends \"layout.html\" %}
 {% block content %}
-{{ data }}
-{{ title }}
+<h2> {{ data }} </h2>
 {% endblock %}
 ", "index.html", "D:\\phpStudy\\PHPTutorial\\WWW\\pan\\app\\index\\views\\index.html");
     }

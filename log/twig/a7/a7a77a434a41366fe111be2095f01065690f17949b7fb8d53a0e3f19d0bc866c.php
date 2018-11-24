@@ -19,7 +19,7 @@ class __TwigTemplate_24566ab6a3e2b430ed58eb23518778f3225304bddb41c0c6533076e9562
         // line 1
         echo "<html>
 <body>
-<header>header</header>
+<header>welcome</header>
 
 <content>
     ";
@@ -28,7 +28,7 @@ class __TwigTemplate_24566ab6a3e2b430ed58eb23518778f3225304bddb41c0c6533076e9562
         // line 8
         echo "</content>
 
-<footer>footer</footer>
+<footer>best wishes</footer>
 </body>
 </html>
 ";
@@ -63,14 +63,14 @@ class __TwigTemplate_24566ab6a3e2b430ed58eb23518778f3225304bddb41c0c6533076e9562
     {
         return new Twig_Source("<html>
 <body>
-<header>header</header>
+<header>welcome</header>
 
 <content>
     {% block content %}
     {% endblock %}
 </content>
 
-<footer>footer</footer>
+<footer>best wishes</footer>
 </body>
 </html>
 ", "layout.html", "D:\\phpStudy\\PHPTutorial\\WWW\\pan\\app\\index\\views\\layout.html");
