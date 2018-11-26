@@ -44,5 +44,8 @@ URL 为 localhost/{项目名}/{模块}/{控制器}/{方法}
              index.html:
              {% extends "layout.html" %} 继承模板布局
              {% block content %} 开始标签    中间写 { 变量名 }   {% endblock %} 闭合标签
+	     
+	
+需要测试数据库的话 使用phpadminer 导入stu.sql文件
 
              
