@@ -63,6 +63,8 @@ class __TwigTemplate_2b1f56a6e38c7a6e2f57d75dd615e8344de275e26859630df4eed6bc5e7
 {% block content %}
 <h2>{{ test }}</h2>
 {% endblock %}
+
+
 ", "test.html", "D:\\phpStudy\\PHPTutorial\\WWW\\pan\\app\\index\\views\\test.html");
     }
 }
